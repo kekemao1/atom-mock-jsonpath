@@ -14,5 +14,8 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
+    "space-pen": "^5.1.2",
+    "atom-space-pen-views": "^2.2.0",
+    "fuzzaldrin": "^2.1.0"
   }
 }

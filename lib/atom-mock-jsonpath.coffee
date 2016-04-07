@@ -8,7 +8,7 @@ module.exports = AtomMockJsonpath =
 
   activate: (state) ->
     @atomMockJsonpathView = new AtomMockJsonpathView(state.atomMockJsonpathViewState)
-    @modalPanel = atom.workspace.addModalPanel(item: @atomMockJsonpathView.getElement(), visible: false)
+    # @modalPanel = atom.workspace.addModalPanel(item: @atomMockJsonpathView.getElement(), visible: false)
 
     #create frist right-panel
     @panel4json = atom.workspace.getActivePane().splitRight(copyActiveItem: false)
@@ -17,7 +17,7 @@ module.exports = AtomMockJsonpath =
     paneElement = atom.views.getView(@panel4json)
 
     #@newText = new TextEditorView(mini:true)
-    paneElement.appendChild(@oreoAtomView.getElement())
+    paneElement.appendChild(@atomMockJsonpathView.getElement())
 
     # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
     @subscriptions = new CompositeDisposable
@@ -35,8 +35,3 @@ module.exports = AtomMockJsonpath =
 
   toggle: ->
     console.log 'AtomMockJsonpath was toggled!'
-
-    if @modalPanel.isVisible()
-      @modalPanel.hide()
-    else
-      @modalPanel.show()
