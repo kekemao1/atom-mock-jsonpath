@@ -1,5 +1,6 @@
 AtomMockJsonpathView = require './atom-mock-jsonpath-view'
 {CompositeDisposable} = require 'atom'
+JsoninputView = require './atom-mock-jsoninputView'
 
 module.exports = AtomMockJsonpath =
   atomMockJsonpathView: null
@@ -9,15 +10,20 @@ module.exports = AtomMockJsonpath =
   activate: (state) ->
     @atomMockJsonpathView = new AtomMockJsonpathView(state.atomMockJsonpathViewState)
     # @modalPanel = atom.workspace.addModalPanel(item: @atomMockJsonpathView.getElement(), visible: false)
+    @myView = new JsoninputView()
+
 
     #create frist right-panel
     @panel4json = atom.workspace.getActivePane().splitRight(copyActiveItem: false)
     #@panel4jsonTree = @panel4json.splitRight(copyActiveItem: false)
 
-    paneElement = atom.views.getView(@panel4json)
+    #paneElement = atom.views.getView(@panel4json)
+
+    @panel4json.addItem(@myView)
 
     #@newText = new TextEditorView(mini:true)
-    paneElement.appendChild(@atomMockJsonpathView.getElement())
+    #paneElement.appendChild(@atomMockJsonpathView.getElement())
+    #paneElement.appendChild(@myView.getElement())
 
     # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
     @subscriptions = new CompositeDisposable

@@ -1,3 +1,5 @@
+JsonTask = require './atom-mock-jsonTask'
+
 module.exports =
 class AtomMockJsonpathView
   callback: null
@@ -5,8 +7,10 @@ class AtomMockJsonpathView
   editorElement: null
   editor: null
   message: null
+  jsonTask: null
 
   constructor: (serializedState) ->
+
     # Create root element
     @element = document.createElement('div')
     @element.classList.add('atom-mock-jsonpath')
@@ -44,15 +48,32 @@ class AtomMockJsonpathView
     @buttomDiv.appendChild(@button)
     @button.innerText = "提交分析"
 
+    @jsonTask = new JsonTask()
+
     @button.onclick = (event,element) =>
-      timePressed = Date.new()
-      console.log(@message.getModel().getText())
+      if @jsonTask.diffJson(@message.getModel().getText())
+        console.log "sdfasdfasdfasdfasdfasdf"
+      else
+        console.log "sdfasdfsadf"
+
+
+      #console.log(@message.getModel().getText())
+      #try
+      #  object = JSON.parse(@message.getModel().getText())
+      #  console.log(object)
+      #catch error
+      #  return console.error(error)
 
   # Returns an object that can be retrieved when package is activated
   serialize: ->
 
   # Tear down any state and detach
   destroy: ->
+    callback: null
+    editorElement: null
+    editor: null
+    message: null
+    jsonTask: null
     @element.remove()
 
   getElement: ->
