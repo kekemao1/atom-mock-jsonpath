@@ -9,3 +9,5 @@
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
 'atom-workspace':
   'ctrl-alt-o': 'atom-mock-jsonpath:toggle'
+  "atom-text-editor[data-grammar='text.weex']":
+    "ctrl-alt-l": "htmlhint:hint"

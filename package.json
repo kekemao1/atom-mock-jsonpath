@@ -2,7 +2,11 @@
   "name": "atom-mock-jsonpath",
   "main": "./lib/atom-mock-jsonpath",
   "version": "0.0.0",
-  "description": "A short description of your package",
+  "description": "Oreo for IDE",
+  "engines":{
+    "atom":"*",
+    "node":"*"
+  },
   "keywords": [
   ],
   "activationCommands": {
@@ -16,6 +20,7 @@
   "dependencies": {
     "space-pen": "^5.1.2",
     "atom-space-pen-views": "^2.2.0",
-    "fuzzaldrin": "^2.1.0"
+    "fuzzaldrin": "^2.1.0",
+    "jquery": "^2.1.4"
   }
 }

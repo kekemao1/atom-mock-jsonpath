@@ -7,6 +7,7 @@ AtomMockJsonpath = require '../lib/atom-mock-jsonpath'
 
 describe "AtomMockJsonpath", ->
   [workspaceElement, activationPromise] = []
+  grammar = null
 
   beforeEach ->
     workspaceElement = atom.views.getView(atom.workspace)
@@ -36,6 +37,10 @@ describe "AtomMockJsonpath", ->
         atom.commands.dispatch workspaceElement, 'atom-mock-jsonpath:toggle'
         expect(atomMockJsonpathPanel.isVisible()).toBe false
 
+    it "parses the grammar", ->
+      expect(grammar).toBeTruthy()
+      expect(grammar.scopeName).toBe "text.weex"
+
     it "hides and shows the view", ->
       # This test shows you an integration test testing at the view level.
 
@@ -57,6 +62,7 @@ describe "AtomMockJsonpath", ->
       runs ->
         # Now we can test for view visibility
         atomMockJsonpathElement = workspaceElement.querySelector('.atom-mock-jsonpath')
+        grammar = atom.grammars.grammarForScopeName("text.weex")
         expect(atomMockJsonpathElement).toBeVisible()
         atom.commands.dispatch workspaceElement, 'atom-mock-jsonpath:toggle'
         expect(atomMockJsonpathElement).not.toBeVisible()

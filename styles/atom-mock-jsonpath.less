@@ -38,6 +38,20 @@ atom-workspace.find-visible {
   }
 }
 
+.jsontreeDiv{
+  background-color: transparent;
+  border-radius: @component-border-radius;
+  border: 1px solid @syntax-result-marker-color;
+  box-sizing: border-box;
+  z-index: 0;
+  position:absolute;
+  width:98%;
+  height:90%;
+  margin-left: 5px;
+  overflow-y: scroll;
+
+}
+
 // Both project and buffer FNR styles
 .find-and-replace,
 .project-find {
@@ -331,7 +345,7 @@ atom-workspace.find-visible {
   width:98%;
   height:90%;
   margin-left: 5px
-        // background-color: white;
+  // background-color: white;
 }
 
 .bottomDiv{
@@ -346,3 +360,100 @@ atom-workspace.find-visible {
   position: absolute;
   left: 0;
 }
+
+
+.jt_json-tree-cont {
+  user-select: text;
+  margin: 0;
+  position: relative;
+  color: #FAFAFA;
+  font: 13px/18px monospace;
+  -webkit-font-smoothing: antialiased; }
+
+  .jt_jsonp-opener,
+  .jt_jsonp-closer {
+    padding: 4px 0 0 8px;
+    color: black;
+    margin-bottom: -6px;
+    color: #444444; }
+
+    .jt_jsonp-closer {
+      margin-top: 0; }
+
+      .jt_json-tree {
+        padding-left: 28px;
+        padding-top: 6px; }
+        .jt_json-tree span {
+          white-space: pre-wrap; }
+
+          .jt_value-cont {
+            display: block;
+            padding-left: 20px;
+            margin-left: -20px;
+            position: relative; }
+
+            .jt_collapsed {
+              white-space: nowrap; }
+              .jt_collapsed > .jt_block-inner {
+                display: none; }
+                .jt_collapsed > .jt_ellipsis:after {
+                  content: "…";
+                  font-weight: bold; }
+                  .jt_collapsed > .jt_ellipsis {
+                    margin: 0 4px;
+                    color: #888; }
+                    .jt_collapsed .jt_value-cont {
+                      display: inline; }
+
+                      .jt_collapser {
+                        width: 20px;
+                        height: 18px;
+                        display: block;
+                        position: absolute;
+                        left: -2px;
+                        top: 1px;
+                        z-index: 5;
+                        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAD1JREFUeNpiYGBgOADE%2F3Hgw0DM4IRHgSsDFOzFInmMAQnY49ONzZRjDFiADT7dMLALiE8y4AGW6LoBAgwAuIkf%2F%2FB7O9sAAAAASUVORK5CYII%3D");
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        display: block;
+                        opacity: 0.15; }
+                        .jt_collapsed > .jt_collapser {
+                          -webkit-transform: rotate(-90deg);
+                          width: 18px;
+                          height: 20px;
+                          left: 0px;
+                          top: 0px; }
+                          .jt_collapser:hover {
+                            opacity: 0.35; }
+                            .jt_collapser:active {
+                              opacity: 0.5; }
+                              .jt_collapsed .jt_value-cont .jt_collapser {
+                                display: none; }
+
+                                .jt_block-inner {
+                                  display: block;
+                                  padding-left: 24px;
+                                  border-left: 1px dotted #bbb;
+                                  margin-left: 2px; }
+
+                                  .jt_bracket {
+                                    font-weight: bold; }
+
+                                    .jt_string {
+                                      color: #0b7500;
+                                      word-wrap: break-word; }
+
+                                      .jt_link:link, .jt_link:visited {
+                                        text-decoration: none;
+                                        color: inherit; }
+                                        .jt_link:hover, .jt_link:active {
+                                          text-decoration: underline;
+                                          color: #050; }
+
+                                          .jt_boolean, .jt_null, .jt_number {
+                                            font-weight: bold;
+                                            color: #1a01cc; }
+
+                                            .jt_key {
+                                              color: #FFB5C5; }

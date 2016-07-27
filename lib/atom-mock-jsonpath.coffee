@@ -1,6 +1,7 @@
 AtomMockJsonpathView = require './atom-mock-jsonpath-view'
 {CompositeDisposable} = require 'atom'
 JsoninputView = require './atom-mock-jsoninputView'
+JsontreeView = require './atom-mock-jsontreeView'
 
 module.exports = AtomMockJsonpath =
   atomMockJsonpathView: null
@@ -11,15 +12,19 @@ module.exports = AtomMockJsonpath =
     @atomMockJsonpathView = new AtomMockJsonpathView(state.atomMockJsonpathViewState)
     # @modalPanel = atom.workspace.addModalPanel(item: @atomMockJsonpathView.getElement(), visible: false)
     @myView = new JsoninputView()
+    @jsontreeView = new JsontreeView()
 
 
     #create frist right-panel
     @panel4json = atom.workspace.getActivePane().splitRight(copyActiveItem: false)
+    @panel4tree = atom.workspace.getActivePane().splitRight(copyActiveItem: false)
     #@panel4jsonTree = @panel4json.splitRight(copyActiveItem: false)
 
     #paneElement = atom.views.getView(@panel4json)
 
     @panel4json.addItem(@myView)
+    @panel4tree.addItem(@jsontreeView)
+    @myView.setTreePaneView(@jsontreeView)
 
     #@newText = new TextEditorView(mini:true)
     #paneElement.appendChild(@atomMockJsonpathView.getElement())

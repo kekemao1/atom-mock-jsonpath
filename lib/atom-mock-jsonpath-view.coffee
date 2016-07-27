@@ -31,7 +31,7 @@ class AtomMockJsonpathView
       placeholderText: '请输入Json内容'    # 説明文
     })
 
-    @editor.setGrammar(atom.grammars.grammarForScopeName('source.json'))
+    @editor.setGrammar(atom.grammars.grammarForScopeName('text.weex'))
     @message.setModel(@editor)
 
     @message.classList.add('message')
@@ -53,6 +53,7 @@ class AtomMockJsonpathView
     @button.onclick = (event,element) =>
       if @jsonTask.diffJson(@message.getModel().getText())
         console.log "sdfasdfasdfasdfasdfasdf"
+
       else
         console.log "sdfasdfsadf"
 

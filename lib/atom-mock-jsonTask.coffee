@@ -4,7 +4,7 @@ class JsonTask
   constructor:  ->
 
   serialize: ->
-    console.log("我")
+    console.log("test json task")
 
   diffJson:(messageText) ->
     try
